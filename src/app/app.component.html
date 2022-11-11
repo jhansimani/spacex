@@ -1,0 +1,34 @@
+<div class="header">
+  <img src="../assets/spacex.svg" alt="" style="height: 40px" />
+</div>
+
+<div class="main">
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <p-dropdown
+          [options]="filterOptions"
+          [(ngModel)]="filterOption"
+          optionLabel="name"
+          (onChange)="onFilterOption(filterOption)"
+        ></p-dropdown>
+      </div>
+
+      <p-dropdown
+        [options]="categories"
+        [(ngModel)]="selectedCategory"
+        (onChange)="onCategoryClick(selectedCategory)"
+      ></p-dropdown>
+    </div>
+    <div class="card-body">
+      <app-data-table
+        [data]="allLaunches"
+        [rows]="rows"
+        [isLoading]="loadFlag"
+        (selectedLaunch)="selectedLaunch($event)"
+      ></app-data-table>
+    </div>
+  </div>
+</div>
+
+<app-modal [launch]="launch" [isOpened]="isOpened"></app-modal>

@@ -1,0 +1,36 @@
+::ng-deep .p-dialog .p-dialog-header {
+  //   padding: 1rem;
+  //   padding-bottom: 0;
+}
+.badge {
+  align-self: flex-start;
+}
+::ng-deep .p-dialog .p-dialog-header-icons {
+  align-self: flex-start;
+}
+::ng-deep .p-dialog {
+  font-family: "Roboto", sans-serif;
+}
+.details {
+  line-height: 1.5;
+  font-size: 18px;
+  padding-bottom: 24px;
+  font-weight: 400;
+}
+a {
+  color: rgb(49, 152, 222);
+  text-decoration: none;
+}
+.details2 {
+  width: 100%;
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    td,
+    th {
+      padding: 12px;
+      border-bottom: 1px solid #ddd;
+      text-align: start;
+    }
+  }
+}

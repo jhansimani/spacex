@@ -1,0 +1,99 @@
+<p-dialog
+  [(visible)]="isOpened"
+  *ngIf="isOpened"
+  [style]="{ width: '40vw' }"
+  [modal]="true"
+>
+  <ng-template pTemplate="header">
+    <div style="display: flex; gap: 16px; align-items: center">
+      <img
+        src="{{ launch.links.mission_patch }}"
+        alt="image"
+        width="60px"
+        height="60px"
+      />
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div>{{ launch.mission_name }}</div>
+        <div>{{ launch.rocket.rocket_name }}</div>
+
+        <div style="display: flex; gap: 8px">
+          <ion-icon name="logo-wordpress"></ion-icon>
+          <ion-icon name="logo-youtube"></ion-icon>
+
+          <ion-icon name="logo-youtube"></ion-icon>
+        </div>
+      </div>
+      <div
+        *ngIf="!launch.launch_success && launch.launch_failure_details"
+        class="badge"
+      >
+        <p-badge value="Failed" severity="danger"></p-badge>
+        <!-- <p-chip label="failed" styleClass="mr-2 failure-chip"></p-chip>
+      <p-chip label="Action" styleClass="mr-2 custom-chip"></p-chip> -->
+      </div>
+      <div
+        *ngIf="launch.launch_success == null && launch.upcoming"
+        class="badge"
+      >
+        <p-badge value="Upcoming" severity="warning"></p-badge>
+      </div>
+      <div
+        *ngIf="launch.launch_success == null && !launch.upcoming"
+        class="badge"
+      >
+        <p-badge value="No Status" severity="warning"></p-badge>
+      </div>
+      <div *ngIf="launch.launch_success && !launch.upcoming" class="badge">
+        <p-badge value="Success" severity="success"></p-badge>
+      </div>
+    </div>
+  </ng-template>
+  <div class="details">
+    {{ launch.details }} <a href="{{ launch.wikipedia }}">Wikipedia</a>
+  </div>
+
+  <div class="details2">
+    <table>
+      <tr>
+        <th>Flight Number</th>
+        <td>{{ launch.flight_number }}</td>
+      </tr>
+      <tr>
+        <th>Mission Name</th>
+        <td>{{ launch.mission_name }}</td>
+      </tr>
+      <tr>
+        <th>Rocket Type</th>
+        <td>{{ launch.rocket.rocket_type }}</td>
+      </tr>
+      <tr>
+        <th>Rocket Name</th>
+        <td>{{ launch.rocket.rocket_name }}</td>
+      </tr>
+      <tr>
+        <th>Manufacturer</th>
+        <td>{{ launch.rocket.second_stage.payloads[0].manufacturer }}</td>
+      </tr>
+      <tr>
+        <th>Nationality</th>
+        <td>{{ launch.rocket.second_stage.payloads[0].nationality }}</td>
+      </tr>
+      <tr>
+        <th>Launch Date</th>
+        <td>{{ launch.launch_date_utc | dateFormat }}</td>
+      </tr>
+      <tr>
+        <th>Payload Type</th>
+        <td>{{ launch.rocket.second_stage.payloads[0].payload_type }}</td>
+      </tr>
+      <tr>
+        <th>Orbit</th>
+        <td>{{ launch.rocket.second_stage.payloads[0].orbit }}</td>
+      </tr>
+      <tr>
+        <th>Launch Site</th>
+        <td>{{ launch.launch_site.site_name }}</td>
+      </tr>
+    </table>
+  </div>
+</p-dialog>

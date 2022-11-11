@@ -1,0 +1,29 @@
+::ng-deep .p-datatable {
+  border: 1px solid #ddd;
+}
+::ng-deep .p-datatable .p-paginator-bottom {
+  border: 0;
+}
+::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  //   border: 0;
+  padding: 0.75rem 1.5rem;
+}
+::ng-deep .p-chip {
+  &.failure-chip {
+    background-color: red;
+  }
+}
+
+::ng-deep .p-badge.p-badge-danger {
+  background-color: #f0cccc;
+  color: rgb(121, 70, 70);
+}
+
+::ng-deep .p-badge.p-badge-success {
+  background-color: #c9f3e2;
+  color: #14927d;
+}
+::ng-deep .p-badge.p-badge-warning {
+  background-color: rgb(238, 219, 152);
+  color: #947450;
+}
